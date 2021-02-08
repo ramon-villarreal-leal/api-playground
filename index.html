@@ -16,6 +16,16 @@
         text = localStorage.getItem("testJSON");
         obj = JSON.parse(text);
         document.getElementById("demo").innerHTML = obj.name;
+
+
+        var person = { name: "Steve", age: 31, city: "New York" };
+
+        // Returns Steve
+        person.name;
+        // Another way to access
+        person['name'];
+        person['name'] = "Ramon";
+
     </script>
 </head>
 <body>
