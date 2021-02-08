@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>API Test</title>
     <script>
         // declaring variables
         var myObj, myJSON, text, obj;
@@ -13,18 +13,38 @@
         localStorage.setItem("testJSON", myJSON);
 
         // Retrieving data:
-        text = localStorage.getItem("testJSON");
-        obj = JSON.parse(text);
-        document.getElementById("demo").innerHTML = obj.name;
+        // text = localStorage.getItem("testJSON");
+        // obj = JSON.parse(text);
+        // document.getElementById("demo").innerHTML = obj.name;
 
 
-        var person = { name: "Steve", age: 31, city: "New York" };
+        var person = { name: "Steve", age: 31, city: "San Diego" };
 
         // Returns Steve
         person.name;
         // Another way to access
         person['name'];
         person['name'] = "Ramon";
+        console.log(name);
+
+        // Geolocation testing ground
+        var x = document.getElementById("demo");
+        // Condition of which the API runs
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        // This will not work coords is undefined at this current moment
+        // Preparing to use a MAP to display
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+
+        console.log(showPosition());
 
     </script>
 </head>
